@@ -1,0 +1,75 @@
+/* .a {
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 100px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    } */
+  
+  #ring::before {
+  content: '';
+    border-radius: 10px;
+    min-width: calc(225px + 15px);
+    min-height: calc(50px + 6px);
+    border: 6px solid #ffc400;
+    box-shadow: 0 0 60px rgba(255, 230, 0, 0.801);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    transform: translate(-25%, 50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  #ring:hover, #ring:focus {
+    color: #313133;
+    transform: translateY(1px);
+  }
+  
+  #ring:hover::before, #ring:focus::before {
+    opacity: 1;
+  }
+  
+  #ring::after {
+    content: '';
+    width: 2px; height: 2px;
+    border-radius: 100%;
+    border: 6px solid #ffd900;
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    animation: ring 2s infinite;
+  }
+  
+  #ring:hover::after, #ring:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+    }
+  }
